@@ -4,9 +4,12 @@ let countChild = 1;
 let lastDisc;
 let towerSel;
 
-//Cria elementos na torre A (torre e discos)
+//Capturando elementos no HTML
 let contTowerA = document.getElementById('towerA');
+let contTowerB = document.getElementById('towerB');
+let contTowerC = document.getElementById('towerC');
 
+//Cria elementos na torre A (torre e discos)
 let torreA = document.createElement("div");
 torreA.className = "vareta__A";
 torreA.id = "vareta__A";
@@ -29,7 +32,6 @@ disco4.id = "disco__4Vermelho";
 contTowerA.appendChild(disco4);
 
 //Cria elemento na torre B (torre)
-let contTowerB = document.getElementById('towerB');
 
 let torreB = document.createElement("div");
 torreB.className = "vareta__B";
@@ -37,37 +39,30 @@ torreB.id = "vareta__B";
 contTowerB.appendChild(torreB);
 
 //Cria elemento na torre C (torre)
-let contTowerC = document.getElementById('towerC');
 
 let torreC = document.createElement("div");
 torreC.className = "vareta__C";
 torreC.id = "vareta__C";
 contTowerC.appendChild(torreC);
 
-//Capturando elementos no HTML
-towerA = document.getElementById('towerA');
-towerB = document.getElementById('towerB');
-towerC = document.getElementById('towerC');
-
 // Evento de click
 const eventoClick = function(event){
     
     let idTowerSel = event.currentTarget;
-    countChild = idTowerSel.childElementCount;
-
-    if (countChild > 1){
-        lastDisc = idTowerSel.lastElementChild.id;
-    } else {
-        lastDisc = '';
-    }
-
+    
     mode = (count % 2 === 0 ? "origem" : "destino");
     count++;
     towerSel = idTowerSel.id;
-
+    
     if(mode === "destino"){
-        moviment();
+        moviment(lastDisc, towerSel);
     }
+    
+    countChild = idTowerSel.childElementCount;
+
+    if (countChild > 1){
+        lastDisc = idTowerSel.lastElementChild;
+    } 
 
     console.log(towerSel); // torre clicada
     console.log(countChild); // quantos filho tem a torre
@@ -76,13 +71,19 @@ const eventoClick = function(event){
 }
 
 // função de movimento do disco
-function moviment(disc, countChild, towerSel, mode){
-    
+function moviment(disc, towerSel){
+    if (towerSel === 'towerA'){
+        contTowerA.appendChild(disc);
+    } else if (towerSel === 'towerB'){
+        contTowerB.appendChild(disc);
+    } else if(towerSel === 'towerC'){
+        contTowerC.appendChild(disc);
+    }
 }
 
 // adicionando event Listener as torres
-towerA.addEventListener('click', eventoClick);
-towerB.addEventListener('click', eventoClick);
-towerC.addEventListener('click', eventoClick);
+contTowerA.addEventListener('click', eventoClick);
+contTowerB.addEventListener('click', eventoClick);
+contTowerC.addEventListener('click', eventoClick);
 
 // outras funções
