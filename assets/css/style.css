@@ -1,0 +1,171 @@
+/* FONTS​ */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');/* FONTS​ */
+
+/* VARIÁVEIS */
+:root{
+
+    --coresTexto: #242424 ;
+    --corBgCointaners: rgba(0, 0, 0, 0.2);
+    --corBgCointaners2: rgba(0, 0, 0, 0.4);
+    --corVareta: rgba(0, 0, 0);
+    --coresSecundaria: #FCA60F;
+    --corTextButton: #ffffff;
+    --fontFamily: 'Nunito', sans-serif;
+}
+/* VARIÁVEIS */
+
+
+.main__container{
+    background-image: url('../img/background2.jpg');
+    background-blend-mode:lighten;
+    background-size: cover;
+    background-color: rgba(255, 210, 159, 0.301);
+    background-position-x: -100px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header__container{
+    width: 95%;
+    height: 100px;
+    background-color: var(--corBgCointaners);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__h1{
+    font-size: 2.2em;
+    color: var(--corTextButton);
+}
+
+.sec__container{
+    width: 95%;
+    height: 450px;
+    background-color: var(--corBgCointaners);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.varet__containerA, .varet__containerB, .varet__containerC{
+    height: 100%;
+    width: 100px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content:flex-start;
+    align-items: center;
+}
+
+.vareta__A, .vareta__B, .vareta__C{
+    background: var(--corVareta);
+    width: 15px;
+    height: 140px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: absolute;
+    z-index: 2;
+}
+
+.vareta__A{
+}
+
+.vareta__B{
+    
+}
+
+.vareta__C{
+}
+
+.disco__1Amarelo{
+    background-color: yellow;
+    z-index: 3;
+    border: solid 2px #000000;
+    border-radius: 10px;
+    height: 21px;
+    width: 96px;
+}
+.disco__1Am_Pos1{
+    left: 30px;
+    top: 220px;
+}
+.disco__1Am_Pos2{
+    left: 30px;
+    top: 220px;
+}
+.disco__1Am_Pos3{
+    left: 30px;
+    top: 220px;
+}
+
+.disco__2Azul{
+    background-color: blue;
+    z-index: 3;
+    border: solid 2px #000000;
+    border-radius: 10px;
+    height: 21px;
+    width: 76px;
+    left: 40px;
+    top: 195px;
+}
+.disco__3Verde{
+    background-color: green;
+    z-index: 3;
+    border: solid 2px #000000;
+    border-radius: 10px;
+    height: 21px;
+    width: 56px;
+    left: 50px;
+    top: 170px;
+}
+.disco__4Vermelho{
+    background-color: red;
+    z-index: 3;
+    border: solid 2px #000000;
+    border-radius: 10px;
+    height: 21px;
+    width: 36px;
+    left: 60px;
+    top: 145px;
+}
+.foo__container{
+    width: 95%;
+    height: 56px;
+    background-color: var(--corBgCointaners);
+}
+
+@media screen and (min-width: 768px){
+    .main__container{
+        background-position: center;
+    }
+}
+@media screen and (min-width: 1024px){
+    .header__container{
+        width: 80%;
+        height: 200px;
+        background-color: var(--corBgCointaners2);
+    }
+    
+    .sec__container{
+        width: 80%;
+        height: 600px;
+        background-color: var(--corBgCointaners2);
+    }
+    
+    .foo__container{
+        width: 80%;
+        height: 56px;
+        background-color: var(--corBgCointaners2);
+    }
+}
+@media screen and (min-width: 1440px){
+    .sec__container{
+        height: 650px;
+    } 
+    .foo__container{
+        height: 102px;
+    }
+}
