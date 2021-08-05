@@ -60,6 +60,11 @@
     align-items: center;
 }
 
+.varet__bg{
+    background-image: url(../img/vareta.png);
+    background-size: cover;
+}
+
 .vareta__A, .vareta__B, .vareta__C{
     background: var(--corVareta);
     width: 15px;
@@ -135,11 +140,50 @@
     width: 95%;
     height: 56px;
     background-color: var(--corBgCointaners);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media screen and (min-width: 768px){
     .main__container{
         background-position: center;
+    }
+
+    .header__container{
+        height: 200px;
+        align-items: flex-start;
+        padding-top: 50px;
+    }
+
+    .sec__container{
+        height: 350px;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .varet__containerA, .varet__containerB, .varet__containerC{
+        width: 200px;
+        height: 250px;
+    }
+
+    .disco__1Amarelo{
+        height: 31px;
+        width: 156px;
+    }
+
+    .disco__2Azul{
+        height: 31px;
+        width: 106px;
+    }
+    .disco__3Verde{
+        height: 31px;
+        width: 76px;
+    }
+    .disco__4Vermelho{
+        height: 31px;
+        width: 46px;
     }
 }
 @media screen and (min-width: 1024px){
@@ -148,12 +192,19 @@
         height: 200px;
         background-color: var(--corBgCointaners2);
     }
+
+    .header__h1{
+        font-size: 3.8em;
+    }
     
     .sec__container{
         width: 80%;
         height: 600px;
         background-color: var(--corBgCointaners2);
+        align-items: flex-end;
+        padding-bottom: 60px;
     }
+    
     
     .foo__container{
         width: 80%;
