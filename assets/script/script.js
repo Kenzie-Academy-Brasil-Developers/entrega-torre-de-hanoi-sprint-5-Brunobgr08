@@ -1,23 +1,23 @@
 let mode = ''; // variável para armazenar o modo torre Origem / torre Destino
-let count = 0;  // contador de cliques
-let countChild;  // 
-let lastDisc;  //variável para armazenar o último filho da torre 
-let previousDisc; // variavel para armazenar o penúltimo filho da torre
-let towerSelID; // variavel para armazenar a torre selecionada
-let lastTower; //variavel para armazenar a torre anterior
+let count = 0;
+let countChild = 1;
+let lastDisc;
+let previousDisc;
+let towerSel;
+let lastTower;
 
 //Capturando elementos no HTML
 let contTowerA = document.getElementById('towerA');
 let contTowerB = document.getElementById('towerB');
 let contTowerC = document.getElementById('towerC');
 
-//Cria as torres / varetas
+
+//Cria Varetas / Torre 
 contTowerA.classList.add('varet__bg');
 contTowerB.classList.add('varet__bg');
 contTowerC.classList.add('varet__bg');
 
-//Cria elementos na torre A (discos)
-
+//Cria elementos na torre A (torre e discos)
 let disco1 = document.createElement("div");
 disco1.className = "disco__1Amarelo";
 disco1.id = "disco__1Amarelo";
@@ -39,27 +39,24 @@ contTowerA.appendChild(disco4);
 // Evento de click
 const eventoClick = function(event){
     
-    let towerSel = event.currentTarget;
+    let idTowerSel = event.currentTarget;
     
     mode = (count % 2 === 0 ? "origem" : "destino");
     count++;
-
-    towerSelID = towerSel.id;
+    towerSel = idTowerSel.id;
     
-    countChild = towerSel.childElementCount;
-    lastDisc = towerSel.lastElementChild;
-    console.log(lastDisc);
-    if (lastDisc !== null){
-        previousDisc = lastDisc.previousElementSibling; 
-    }
-
-    if(mode === "destino"){  
-        // if (validMovement(towerSel, lastTower, lastDisc, previousDisc) === true){
-            moviment(lastDisc, towerSelID);
-        // }    
+    if(mode === 'destino'){
+                moviment(lastDisc, towerSel);
     } else {
-        lastTower = towerSel;
+        lastTower = idTowerSel;
     }
+    
+    countChild = idTowerSel.childElementCount;
+    
+    if (countChild > 0){
+        lastDisc = idTowerSel.lastElementChild;
+        previousDisc = lastDisc.previousElementSibling; 
+    } 
 }
 
 
@@ -82,25 +79,19 @@ contTowerB.addEventListener('click', eventoClick);
 contTowerC.addEventListener('click', eventoClick);
 
 // função para validar movimento de discos incorretos
-function validMovement(towerSel, lastTower, lastDisc, originDisc){
-
-     
-
+function validMovement(lastDisc, countChild, originDisc){
+    let widthLastDisc = lastDisc.offsetWidth;
+    let widthOrigDisc = originDisc.offsetWidth;
     
-    // // console.log(lastDisc.offsetWidth);
-    // // console.log(previousDisc.offsetWidth);
-
-    // let widthLastDisc = lastDisc.offsetWidth;
-    // let widthOrigDisc = originDisc.offsetWidth;
-    
-
+    if (countChild === 1){
+        return true;
+    } else if(countChild === 2 && widthOrigDisc === 15){
+        return true;
+    } else if (countChild > 1 && widthLastDisc < widthOrigDisc){
+            return true;
+    } else {
+        return false;
+    }
 }
 
-
-//função para verificar movimentos/cliques incorretos/inválidos nas torres
-function incorrectsMov(mode, towerSel, countChild, lastTower){
-
-    
-    
-}
 // outras funções
