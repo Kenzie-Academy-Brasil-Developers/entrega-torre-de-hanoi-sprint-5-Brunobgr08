@@ -47,7 +47,7 @@ const eventoClick = function(event){
     
     if(mode === 'destino'){
                 moviment(lastDisc, towerSel);
-                victoria();
+
     } else {
         lastTower = idTowerSel;
     }
@@ -104,21 +104,3 @@ function validMovement(lastDisc, countChild, originDisc){
 }
 
 // outras funções
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function victoryRule() {
-//     if (towerSel !== torreA && countChild === 5){
-//       console.log("Parabéns, você venceu!")        
-//       return
-//     }
