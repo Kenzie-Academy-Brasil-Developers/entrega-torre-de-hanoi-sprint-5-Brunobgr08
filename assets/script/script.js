@@ -47,6 +47,10 @@ const eventoClick = function(event){
     
     if(mode === 'destino'){
                 moviment(lastDisc, towerSel);
+                if (victoria){
+                        let msg = document.getElementById('informWin');
+                        msg.innerText = 'Você ganhou!! Jogue novamente...'
+                }
     } else {
         lastTower = idTowerSel;
     }
@@ -95,3 +99,13 @@ function validMovement(lastDisc, countChild, originDisc){
 }
 
 // outras funções
+
+function victoria(){
+    if(contTowerB.childElementCount === 4 || contTowerC.childElementCount === 4){ //condição de vitória
+        contTowerA.removeEventListener('click', eventoClick);
+        contTowerB.removeEventListener('click', eventoClick);
+        contTowerC.removeEventListener('click', eventoClick);
+        return true;
+    }
+    return false;
+}
