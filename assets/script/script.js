@@ -47,6 +47,7 @@ const eventoClick = function(event){
     
     if(mode === 'destino'){
                 moviment(lastDisc, towerSel);
+                victoria();
     } else {
         lastTower = idTowerSel;
     }
