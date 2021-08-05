@@ -57,6 +57,13 @@ const eventoClick = function(event){
         lastDisc = idTowerSel.lastElementChild;
         previousDisc = lastDisc.previousElementSibling; 
     } 
+    
+    countChild = idTowerSel.childElementCount;
+    
+    if (countChild > 0){
+        lastDisc = idTowerSel.lastElementChild;
+        previousDisc = lastDisc.previousElementSibling; 
+    } 
 }
 
 
@@ -72,6 +79,7 @@ function moviment(disc, towerSel){
         }
     }
 }
+
 
 // adicionando event Listener as torres
 contTowerA.addEventListener('click', eventoClick);
@@ -95,3 +103,21 @@ function validMovement(lastDisc, countChild, originDisc){
 }
 
 // outras funções
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function victoryRule() {
+//     if (towerSel !== torreA && countChild === 5){
+//       console.log("Parabéns, você venceu!")        
+//       return
+//     }
