@@ -169,3 +169,14 @@
         height: 102px;
     }
 }
+
+
+
+
+
+
+
+/* 
+function victoryRule() 
+  let discos = document.querySelectorAll(".disco").length;
+  console.log(discos) */

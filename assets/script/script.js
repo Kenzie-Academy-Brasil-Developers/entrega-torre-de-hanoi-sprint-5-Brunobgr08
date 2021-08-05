@@ -34,6 +34,8 @@ contTowerA.appendChild(disco4);
 
 //Cria elemento na torre B (torre)
 
+
+
 let torreB = document.createElement("div");
 torreB.className = "vareta__B";
 torreB.id = "vareta__B";
@@ -57,6 +59,11 @@ const eventoClick = function(event){
     
     if(mode === "destino"){
         moviment(lastDisc, towerSel);
+        if(torreB.childElementCount === 5 || torreC.childElementCount === 5){ //condição de vitória
+            contTowerA.removeEventListener('click', eventoClick);
+            contTowerB.removeEventListener('click', eventoClick);
+            contTowerC.removeEventListener('click', eventoClick);
+        }
     }
     
     countChild = idTowerSel.childElementCount;
@@ -83,6 +90,7 @@ function moviment(disc, towerSel){
     }
 }
 
+
 // adicionando event Listener as torres
 contTowerA.addEventListener('click', eventoClick);
 contTowerB.addEventListener('click', eventoClick);
@@ -103,3 +111,21 @@ function validMovement(lastDisc, countChild, originDisc){
 }
 
 // outras funções
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function victoryRule() {
+//     if (towerSel !== torreA && countChild === 5){
+//       console.log("Parabéns, você venceu!")        
+//       return
+//     }
