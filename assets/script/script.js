@@ -47,13 +47,17 @@ const eventoClick = function(event){
     
     if(mode === 'destino'){
                 moviment(lastDisc, towerSel);
-                if (victoria){
-                        let msg = document.getElementById('informWin');
-                        msg.innerText = 'Você ganhou!! Jogue novamente...'
-                }
+
     } else {
         lastTower = idTowerSel;
     }
+    
+    countChild = idTowerSel.childElementCount;
+    
+    if (countChild > 0){
+        lastDisc = idTowerSel.lastElementChild;
+        previousDisc = lastDisc.previousElementSibling; 
+    } 
     
     countChild = idTowerSel.childElementCount;
     
@@ -77,6 +81,7 @@ function moviment(disc, towerSel){
     }
 }
 
+
 // adicionando event Listener as torres
 contTowerA.addEventListener('click', eventoClick);
 contTowerB.addEventListener('click', eventoClick);
@@ -99,13 +104,3 @@ function validMovement(lastDisc, countChild, originDisc){
 }
 
 // outras funções
-
-function victoria(){
-    if(contTowerB.childElementCount === 4 || contTowerC.childElementCount === 4){ //condição de vitória
-        contTowerA.removeEventListener('click', eventoClick);
-        contTowerB.removeEventListener('click', eventoClick);
-        contTowerC.removeEventListener('click', eventoClick);
-        return true;
-    }
-    return false;
-}
